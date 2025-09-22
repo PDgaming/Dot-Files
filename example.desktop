@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.2.4
+Name=Cursor
+Comment=AI Code Editor
+Exec=/media/Software/Linux/Cursor/Cursor.AppImage
+Icon=/media/Software/Linux/Cursor/Cursor-Icon.png
+Terminal=false
+Categories=Software

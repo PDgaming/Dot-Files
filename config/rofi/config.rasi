@@ -1,0 +1,92 @@
+configuration {
+    display-drun: "";
+    display-window: "";
+    display-file-browser-extended: "";
+    drun-display-format: "{icon} {name}";
+    font: "JetBrainsMono Nerd Font Medium 11";
+    modi: "window,drun,file-browser-extended";
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #1e1e2e;
+    bg-alt: #313244;
+
+    fg: #cdd6f4;
+    fg-alt: #a6adc8;
+
+    background-color: @bg;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    
+    border-radius: 8px;
+}
+window {
+    width: 40%;
+    border-radius: 12px;
+    padding: 10px;
+}
+element {
+    padding: 12;
+    text-color: @fg-alt;
+    border-radius: 6px;
+}
+element selected {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    font: "JetBrainsMono Nerd Font Medium 12";
+}
+element-icon {
+    size: 32;
+    margin-right: 10px;
+}
+entry {
+    background-color: @bg-alt;
+    padding: 12;
+    text-color: @fg;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-alt;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+listview {
+    background-color: @bg;
+    columns: 1;
+    lines: 8;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+mainbox {
+    background-color: @bg;
+    children: [inputbar, listview];
+    border-radius: 15px;
+    padding: 10px;
+}
+
+prompt {
+    background-color: @bg-alt;
+    enabled: true;
+    text-color: @fg;
+    border-radius: 8px;
+    vertical-align: 0.5;
+}
