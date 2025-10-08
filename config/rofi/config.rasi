@@ -4,7 +4,7 @@ configuration {
     display-file-browser-extended: "";
     drun-display-format: "{icon} {name}";
     font: "JetBrainsMono Nerd Font Medium 11";
-    modi: "window,drun,file-browser-extended";
+    modi: "window,drun";
     show-icons: true;
     icon-theme: "Papirus";
 }

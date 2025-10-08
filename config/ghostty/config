@@ -44,7 +44,6 @@
 
 command = $HOME/tmux_and_fish.sh
 
-theme = catppuccin-mocha
 background-opacity=0.94
 shell-integration-features = no-cursor,no-sudo,no-title
 keybind = ctrl+shift+r=reload_config

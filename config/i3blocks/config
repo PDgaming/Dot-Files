@@ -4,25 +4,16 @@ markup=none
 
 # Speed
 [bandwidth3]
-command=$SCRIPT_DIR/bandwidth3/bandwidth3
+command=$SCRIPT_DIR/bandwidth
 interval=persist
 color=#eb6000
 
 # Memory
 [memory]
-command=$SCRIPT_DIR/memory/memory
+command=$SCRIPT_DIR/memory
 label=Mem:
 color=#eb4000
 interval=3
-
-# Volume
-[volume]
-#label=♪
-command=$SCRIPT_DIR/volume/volume
-label=Vol:
-interval=1
-color=#eb1000
-signal=10
 
 # Date
 [date]
@@ -31,11 +22,6 @@ interval=3600
 color=#88c0d0
 
 #Time Zones
-[tokyo]
-command=TZ=Asia/Tokyo date '+%I:%M:%p 🇯🇵'
-interval=5
-color=#a3be8c
-
 [newyork]
 command=TZ=America/New_York date '+%I:%M:%p 🇺🇸'
 interval=5

@@ -36,10 +36,10 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym F8 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -55,7 +55,7 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -87,27 +87,27 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -187,51 +187,47 @@ bar {
   status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
 	position top
   colors {
-    background #2e3440  # Example dark background color (adjust to your theme)
-    statusline #d8dee9  # Color for the text in i3blocks output
-    separator  #666666  # Color for the separator between blocks
+    background         #24273a
+    statusline         #cad3f5
+    focused_statusline #cad3f5
+    focused_separator  #24273a
   }
 }
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                  border  backgr. text     indicator child_border
+client.focused           #b7bdf8 #24273a #cad3f5  #f4dbd6   #b7bdf8
+client.focused_inactive  #6e738d #24273a #cad3f5  #f4dbd6   #6e738d
+client.unfocused         #6e738d #24273a #cad3f5  #f4dbd6   #6e738d
+client.urgent            #f5a97f #24273a #f5a97f  #6e738d   #f5a97f
+client.placeholder       #6e738d #24273a #cad3f5  #6e738d   #6e738d
+client.background        #24273a
 
-client.background       #ffffff
-
-default_border none
-for_window [class="ghostty"] border none
+default_border normal
 
 # Gaps
-#gaps inner 3
-#gaps outer 3
+gaps inner 5
 
 exec_always nitrogen --restore
 exec_always --no-startup-id ~/.config/i3/scripts/bluetooth-autoconnect.sh
 exec_always --no-startup-id xset r rate 200 25
-#exec --no-startup-id picom -b
-exec ~/.config/i3/autostart.sh
-exec_always --no-startup-id flatpak run org.fcitx.Fcitx5 -d
+exec --no-startup-id picom -b
+exec_always ~/.config/i3/autostart.sh
+exec_always --no-startup-id fcitx5 -d
 exec_always bluetoothctl connect 6D:31:6A:FD:A9:7D
 exec /mnt/Software/Linux/activitywatch/aw-qt
+exec --no-startup-id syncthing
 
 # Screenshots
-bindsym Ctrl+Print exec --no-startup-id $HOME/take-screenshot.sh
+bindsym Ctrl+Print exec --no-startup-id ~/take_screenshot.sh
 # Zen Browser
-bindsym Ctrl+Shift+x exec flatpak run app.zen_browser.zen
+bindsym Ctrl+Shift+x exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
 # Dolphin
 bindsym Ctrl+Mod1+d exec dolphin
 # Rofi
 bindsym Ctrl+Shift+space exec rofi -show drun
 bindsym Ctrl+Shift+Tab exec rofi -show window
-bindsym Ctrl+Shift+f exec rofi -show file-browser-extended \
-                          -file-browser-dir /media/ \
-                          -file-browser-depth 4 \
-                          -file-browser-exclude root \
-                          -file-browser-exclude pd \
-                          -file-browser-exclude Software \
-                          -file-browser-exclude Programming \
-                          -file-browser-exclude "System Volume Information"
+bindsym Ctrl+Shift+f exec rofi -show
+#i3lock
+bindsym Ctrl+Shift+l exec i3lock --ring-color=000000 --inside-color=ffffff --line-color=000000 --color=000000
+#suspend
+bindsym $mod+Shift+s exec systemctl suspend
