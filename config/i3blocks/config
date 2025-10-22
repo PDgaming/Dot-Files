@@ -3,31 +3,38 @@ separator_block_width=15
 markup=none
 
 # Speed
-[bandwidth3]
+[Bandwidth]
 command=$SCRIPT_DIR/bandwidth
 interval=persist
 color=#eb6000
 
 # Memory
-[memory]
+[Memory]
 command=$SCRIPT_DIR/memory
 label=Mem:
 color=#eb4000
 interval=3
 
+# Volume
+[Volume]
+command=$SCRIPT_DIR/volume
+label=Vol:
+color=#f6c177
+interval=1
+
 # Date
-[date]
+[Date]
 command=date '+%a %b %d'
 interval=3600
 color=#88c0d0
 
 #Time Zones
-[newyork]
+[New York]
 command=TZ=America/New_York date '+%I:%M:%p 🇺🇸'
 interval=5
 color=#a3be8c
 
-[india]
+[ndia]
 command=date '+%I:%M:%p 🇮🇳'
 interval=5
 color=#8be9fd

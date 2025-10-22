@@ -97,7 +97,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -207,7 +207,7 @@ default_border normal
 # Gaps
 gaps inner 5
 
-exec_always nitrogen --restore
+exec_always feh --bg-scale Dot-Files/wallpaper/Jinbei.jpg
 exec_always --no-startup-id ~/.config/i3/scripts/bluetooth-autoconnect.sh
 exec_always --no-startup-id xset r rate 200 25
 exec --no-startup-id picom -b
