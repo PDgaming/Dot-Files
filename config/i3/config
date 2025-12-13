@@ -207,7 +207,7 @@ default_border normal
 # Gaps
 gaps inner 5
 
-exec_always feh --bg-scale Dot-Files/wallpaper/Jinbei.jpg
+exec_always feh --bg-scale ~/Dot-Files/wallpaper/Jinbei.jpg
 exec_always --no-startup-id ~/.config/i3/scripts/bluetooth-autoconnect.sh
 exec_always --no-startup-id xset r rate 200 25
 exec --no-startup-id picom -b
@@ -216,6 +216,7 @@ exec_always --no-startup-id fcitx5 -d
 exec_always bluetoothctl connect 6D:31:6A:FD:A9:7D
 exec /mnt/Software/Linux/activitywatch/aw-qt
 exec --no-startup-id syncthing
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
 
 # Screenshots
 bindsym Ctrl+Print exec --no-startup-id ~/take_screenshot.sh
@@ -227,7 +228,5 @@ bindsym Ctrl+Mod1+d exec dolphin
 bindsym Ctrl+Shift+space exec rofi -show drun
 bindsym Ctrl+Shift+Tab exec rofi -show window
 bindsym Ctrl+Shift+f exec rofi -show
-#i3lock
-bindsym Ctrl+Shift+l exec i3lock --ring-color=000000 --inside-color=ffffff --line-color=000000 --color=000000
-#suspend
-bindsym $mod+Shift+s exec systemctl suspend
+#power-menu
+bindsym Ctrl+Shift+l exec ~/.config/i3/scripts/power-menu.sh
