@@ -107,7 +107,7 @@ output * bg ~/Dot-Files/wallpaper/Jinbei.jpg fill
 
 exec_always ~/.config/sway/autostart.sh
 exec_always --no-startup-id fcitx5 -d
-exec_always bluetoothctl connect 6D:31:6A:FD:A9:7D
+exec_always sh -c "bluetoothctl connect 6D:31:6A:FD:A9:7D| pactl set-sink-volume @DEFAULT_SINK@ 50%"
 
 exec /mnt/Software/Linux/activitywatch/aw-qt
 exec --no-startup-id syncthing
