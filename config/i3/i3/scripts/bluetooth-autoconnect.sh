@@ -1,9 +1,7 @@
 #!/bin/bash
 
-sleep 5
-
-systemctl --user restart bluetooth.service || sudo systemctl restart bluetooth.service
+sleep 1
 
 bluetoothctl power on
 
-bluetoothctl connect 6D:31:6A:FD:A9:7D
+bluetoothctl connect 41:42:29:C1:66:09
