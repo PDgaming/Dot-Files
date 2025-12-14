@@ -13,6 +13,7 @@ window#waybar {
   background: rgba(43, 48, 59, 0.5);
   border-bottom: 3px solid rgba(100, 114, 125, 0.5);
   color: white;
+  border-radius: 0 0 5px 5px;
 }
 tooltip {
   background: rgba(43, 48, 59, 0.5);
@@ -22,14 +23,66 @@ tooltip label {
   color: white;
 }
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 3px;
   background: transparent;
   color: white;
+  border-radius: 5px;
   border-bottom: 3px solid transparent;
 }
 #workspaces button.focused {
   background: #64727d;
   border-bottom: 3px solid white;
+}
+#workspaces button:hover {
+  background: #64727d;
+  border-bottom: 3px solid white;
+}
+#clock {
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  border-bottom: 3px solid #8be9fd;
+}
+#clock:hover {
+  background-color: #8be9fd;
+}
+#network {
+  border-radius: 5px;
+  padding: 5px;
+  border-bottom: 3px solid #eb6000;
+}
+#network:hover {
+  background-color: #eb6000;
+}
+#memory {
+  border-radius: 5px;
+  padding: 5px;
+  border-bottom: 3px solid #eb4000;
+}
+#memory:hover {
+  background-color: #eb4000;
+}
+#pulseaudio {
+  border-radius: 5px;
+  padding: 5px;
+  border-bottom: 3px solid #f6c177;
+}
+#pulseaudio:hover {
+  background-color: #f6c177;
+}
+#tray {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #64727d;
+  border-bottom: 3px solid #161320;
+}
+#custom-power {
+  padding-left: 5px;
+  border-radius: 5px;
+  border-bottom: 3px solid red;
+}
+#custom-power:hover {
+  background-color: red;
 }
 menu {
   border-radius: 10px;

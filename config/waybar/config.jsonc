@@ -17,6 +17,9 @@
       "1": "\uf269",
       "2": "\uf1ff",
       "3": "\uf489",
+      "4": "\udb80\udf9a",
+      "5": "\uf268",
+      "9": "\uf233",
       "urgent": "\uf06a",
       "focused": "\uf192",
       "default": "\uf111"
@@ -24,8 +27,8 @@
   },
 
   "clock": {
-    "format": "{:%a %dth %b %H:%M %p}",
-    "tooltip-format": "{:%a %d %b %H:%M %p}"
+    "format": "{:%a %dth %b %I:%M %p}",
+    "tooltip-format": "{:%a %d %b %I:%M %p}"
   },
 
   "network": {
@@ -54,6 +57,7 @@
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power_menu.xml",
     "menu-actions": {
+      "lock": "swaylock -c 000000",
       "shutdown": "shutdown",
       "reboot": "reboot",
       "suspend": "systemctl suspend"
