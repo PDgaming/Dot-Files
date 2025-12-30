@@ -1,3 +1,7 @@
 #!/bin/bash
 
-maim -s | tee "$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%I-%M-%S).png" | xclip -selection clipboard -t image/png
+FILENAME="$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+grim -g "$(slurp)" "$FILENAME"
+if [ -f "$FILENAME" ]; then
+  cat "$FILENAME" | wl-copy -t image/png
+fi
