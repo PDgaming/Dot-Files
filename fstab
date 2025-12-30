@@ -1,1 +1,27 @@
-/etc/fstab
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sdb8
+UUID=f99fca37-3894-4f66-a1d5-98c5e2d9cd66	/         	ext4      	rw,relatime	0 1
+
+# /dev/sdb7
+UUID=035E-092B      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# Main Files Partition
+UUID=1E2898F22898CA63  /mnt/MainFiles  ntfs-3g  defaults,nofail,windows_names  0  0
+
+# Software Partition
+UUID=324CB95C4CB91B93  /mnt/Software  ntfs-3g  defaults,nofail,windows_names  0  0
+
+# Content Partition 1 (sdc1)
+UUID=F43622BB36227F2C  /mnt/Content1  ntfs-3g  defaults,nofail,windows_names  0  0
+
+# Programming Partition
+UUID=74DCB197DCB153D8  /mnt/Programming  ntfs-3g  defaults,nofail,windows_names  0  0
+
+# Content
+UUID=0C2EAC990376D3CD  /mnt/Content  ntfs-3g  defaults,uid=1000,gid=1000,rw,user,exec,umask=000,nofail  0  0
+
+# Storage
+UUID=7391cbeb-bdf3-43ec-a44d-f95fa382bd76  /home/prodeh/Storage  ext4  rw,noatime  0  2
