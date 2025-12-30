@@ -10,25 +10,29 @@
 
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
+    "all-outputs": false,
     "warp-on-scroll": false,
     "format": " {name}: {icon} ",
     "format-icons": {
       "1": "\uf269",
       "2": "\uf1ff",
       "3": "\uf489",
-      "4": "\udb80\udf9a",
-      "5": "\uf268",
       "9": "\uf233",
       "urgent": "\uf06a",
-      "focused": "\uf192",
       "default": "\uf111"
-    }
+    },
   },
 
   "clock": {
-    "format": "{:%a %dth %b %I:%M %p}",
-    "tooltip-format": "{:%a %d %b %I:%M %p}"
+    "format": "{:%a %dth %b %I:%M %p %Z}",
+    "tooltip-format": "{:%a %dth %b %I:%M %p %Z}",
+    "timezones": [
+      "",
+      "America/New_York",
+    ],
+    "actions": {
+      "on-click": "tz_up",
+    }
   },
 
   "network": {
