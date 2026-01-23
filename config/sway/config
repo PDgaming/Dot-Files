@@ -3,7 +3,7 @@ set $mod Mod4
 font pango:monospace 12
 
 output HDMI-A-1 pos 0 0 scale 1
-output DP-1 pos 1920 0 scale 1
+output DP-1 pos 1920 0 scale 1.
 
 exec --no-startup-id dex
 
@@ -116,10 +116,11 @@ gaps inner 5
 output * bg ~/Dot-Files/wallpaper/Jinbei.jpg fill
 
 exec_always ~/.config/sway/autostart.sh
+exec ~/.config/sway/activitywatch.sh
 exec_always --no-startup-id fcitx5 -d
 exec_always ~/.config/sway/headphones.sh
-exec /mnt/Software/Linux/activitywatch/aw-qt
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
+exec ~/.config/sway/
 
 bindsym Ctrl+Print exec ~/take_screenshot.sh
 bindsym Ctrl+Shift+x exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
@@ -129,3 +130,12 @@ bindsym Ctrl+Shift+Tab exec rofi -show window
 bindsym Ctrl+Shift+f exec rofi -show
 bindsym $mod+Return exec $term
 bindsym Ctrl+Shift+l exec ~/.config/sway/power-menu.sh
+bindsym Ctrl+Shift+d exec legcord
+
+# Autostart
+assign [app_id="zen"] workspace number 1
+exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
+for_window [app_id="zen"] focus
+
+assign [app_id="legcord"] workspace number 2
+exec legcord
