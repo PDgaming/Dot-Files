@@ -7,6 +7,11 @@ configuration {
     modi: "window,drun";
     show-icons: true;
     icon-theme: "Papirus";
+    disable-history: false;
+    levenshtein-sort: true;
+    matching: "prefix";
+    case-sensitive: false;
+    tokenize: true;
 }
 
 @theme "/dev/null"

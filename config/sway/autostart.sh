@@ -1,44 +1,45 @@
 #!/bin/bash
 
-PROJECT_DIR="/mnt/Programming/programming/Github/Perverted-Old-Man-Discord-Bot"
-PROGRAM_NAME="main.py"
+manage_process() {
+  local dir=$1
+  local cmd=$2
+  local name=$3
 
-stop_bot() {
-  echo "Stopping $PROGRAM_NAME..."
-  pids=$(pgrep -f "$PROGRAM_NAME")
+  echo "Managing $name..."
 
+  # 1. Kill existing instances
+  # We use [m]ain.py trick so grep doesn't find itself
+  pids=$(pgrep -f "$name")
   if [ -n "$pids" ]; then
     kill $pids
+    sleep 1
+    # Check if still running and force kill if necessary
+    kill -9 $(pgrep -f "$name") 2>/dev/null
+  fi
 
-    sleep 5
-
-    if pgrep -f "$PROGRAM_NAME" >/dev/null; then
-      echo "Forcefully stopping $PROGRAM_NAME..."
-      kill -9 $pids
-    fi
-    echo "$PROGRAM_NAME stopped."
+  # 2. Start the process
+  cd "$dir" || {
+    notify-send -u critical "Error" "Directory not found for $name"
+    return 1
+  }
+  # Execute directly using the venv's python binary
+  if $cmd & then
+    notify-send -t 2000 "Success" "$name launched successfully."
   else
-    echo "No running instance of $PROGRAM_NAME found."
+    notify-send -u critical "Launch Failed" "Could not start $name."
   fi
 }
 
-start_bot() {
-  echo "Starting $PROGRAM_NAME..."
-  cd "$PROJECT_DIR"
+# --- Start Discord Bot ---
+# Note: Instead of sourcing, we call the venv python directly
+manage_process \
+  "/mnt/Programming/programming/Github/Perverted-Old-Man-Discord-Bot/" \
+  "./venv/bin/python3 main.py" \
+  "main.py"
 
-  source venv/bin/activate
+# --- Start Heartbeat (Bun/TS) ---
+manage_process \
+  "/mnt/Programming/programming/Github/United-Blocks" \
+  "bun run heartbeat.ts" \
+  "heartbeat.ts"
 
-  python3 "$PROGRAM_NAME" &
-
-  deactivate
-
-  echo "$PROGRAM_NAME started."
-}
-
-if pgrep -f "$PROGRAM_NAME" >/dev/null; then
-  stop_bot
-
-  start_bot
-else
-  start_bot
-fi

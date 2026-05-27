@@ -1,5 +1,5 @@
 #!/bin/bash
-OPTIONS="lock\nsuspend\nreboot\nshutdown"
+OPTIONS="lock\nsuspend"
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -i -p "Power:")
 
@@ -9,11 +9,5 @@ lock)
   ;;
 suspend)
   systemctl suspend
-  ;;
-reboot)
-  reboot
-  ;;
-shutdown)
-  shutdown
   ;;
 esac
