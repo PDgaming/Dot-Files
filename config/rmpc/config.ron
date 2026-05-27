@@ -1,0 +1,208 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    address: "localhost:6600",
+    password: None,
+    enable_config_hot_reload: true,
+    theme: "custom",
+    volume_step: 5,
+    max_fps: 30,
+    scrolloff: 0,
+    wrap_navigation: false,
+    enable_mouse: true,
+    status_update_interval_ms: 1000,
+    select_current_song_on_change: true,
+    browser_song_sort: [Title, Artist],
+    album_art: (
+        method: Auto,
+        max_size_px: (width: 800, height: 800),
+        disabled_protocols: ["http://", "https://"],
+        vertical_align: Center,
+        horizontal_align: Center,
+    ),
+    search: (
+        case_sensitive: false,
+        mode: Contains,
+        tags: [
+            (value: "any",         label: "Any Tag"),
+            (value: "artist",      label: "Artist"),
+            (value: "album",       label: "Album"),
+            (value: "albumartist", label: "Album Artist"),
+            (value: "title",       label: "Title"),
+            (value: "filename",    label: "Filename"),
+            (value: "genre",       label: "Genre"),
+        ],
+    ),
+    artists: (
+        album_display_mode: SplitByDate,
+        album_sort_by: Date,
+    ),
+    current_song: (
+        format: "{title}\n{artist}\n{album}",
+        align: Center,
+    ),
+    tabs: [
+        (
+            name: "Now Playing",
+            pane: Split(
+                direction: Horizontal,
+                panes: [(
+                        size: "100%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "3",
+                                    borders: "ALL",
+                                    border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
+                                    pane: Split(
+                                        direction: Horizontal,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(Empty())
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(QueueHeader())
+                                            ),
+                                        ]
+                                    )
+                                ),
+                                (
+                                    size: "100%",
+                                    borders: "LEFT | RIGHT | BOTTOM",
+                                    border_symbols: Rounded,
+                                    pane: Split(
+                                        direction: Horizontal,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(Empty())
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(Queue)
+                                            ),
+                                        ]
+                                    )
+                                ),
+                            ],
+                        ),
+                    )],
+            ),
+        ),
+        // Library Pane
+        (
+            name: "Library",
+            pane: Pane(Directories),
+        ),
+        // Playlists Pane
+        (
+            name: "Playlists",
+            pane: Split(
+                direction: Horizontal,
+                panes: [(size: "100%", borders: "ALL", pane: Pane(Playlists))],
+            ),
+        ),
+        // Search Pane
+        (
+            name: "Search",
+            pane: Split(
+                direction: Horizontal,
+                panes: [(
+                    size: "100%",
+                    borders: "ALL",
+                    pane: Pane(Search)
+                )],
+            )
+        )
+    ],
+    keybinds: (
+        global: {
+            "u":        Update,
+            "U":        Rescan,
+            ":":        CommandMode,
+            
+            ".":        VolumeUp,
+            ",":        VolumeDown,
+            
+            "s":        Stop,
+            "<Tab>":    NextTab,
+            "<S-Tab>":  PreviousTab,
+
+            "1":        SwitchToTab("Now Playing"),
+            "2":        SwitchToTab("Library"),
+            "3":        SwitchToTab("Playlists"),
+            "4":        SwitchToTab("Search"),
+
+            "q":        Quit,
+            
+            ">":        NextTrack,
+            "<":        PreviousTrack,
+            
+            "f":        SeekForward,
+            "b":        SeekBack,
+            
+            "p":        TogglePause,
+            "z":        ToggleRepeat,
+            "x":        ToggleRandom,
+            "c":        ToggleConsume,
+            "v":        ToggleSingle,
+            
+            "?":        ShowHelp,
+            "oI":       ShowCurrentSongInfo,
+            "oo":       ShowOutputs,
+            "op":       ShowDecoders,
+        },
+        navigation: {
+            "k":          Up,
+            "j":          Down,
+            "h":          Left,
+            "l":          Right,
+
+            "<Up>":       Up,
+            "<Down>":     Down,
+            "<Left>":     Left,
+            "<Right>":    Right,
+
+            "n":          NextResult,
+            "N":          PreviousResult,
+
+            "a":          Add,
+            "A":          AddAll,
+            "<C-r>":      Rename,
+            "D":          Delete,
+
+            "<C-c>":      Close,
+            "<Esc>":      Close,
+
+            "<CR>":       Confirm,
+
+            "K":          MoveUp,
+            "J":          MoveDown,
+
+            "<C-u>":      UpHalf,
+            "<C-d>":      DownHalf,
+
+            "<Space>":    Select,
+            "<C-Space>":  InvertSelection,
+
+            "/":          EnterSearch,
+            
+        },
+        queue: {
+            "<CR>":     Play,
+
+            "d":        Delete,
+            "D":        DeleteAll,
+            
+            "a":       AddToPlaylist,
+            "<C-s>":   Save,
+
+            "C":        JumpToCurrent,
+            "i":        ShowInfo,
+        },
+    ),
+)

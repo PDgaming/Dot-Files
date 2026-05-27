@@ -1,7 +1,16 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export --path GOPATH:/home/prodeh/go
+SETUVAR --export GTK_IM_MODULE:fcitx
 SETUVAR --export --path PATH:/home/prodeh/go/bin\x1e/home/prodeh/\x2ebun/bin\x1e/home/prodeh/\x2elocal/bin\x1e/mnt/Software/Linux/Zen\x2dBrowser\x1e/home/prodeh/\x2elocal/share/nvim/mason/bin\x1e/home/prodeh/\x2ebun/bin\x1e/home/prodeh/\x2ebun/bin\x1e/home/prodeh/\x2elocal/share/nvm/v24\x2e8\x2e0/bin\x1e/home/prodeh/\x2edeno/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/prodeh/\x2elocal/share/flatpak/exports/bin\x1e/var/lib/flatpak/exports/bin\x1e/usr/lib/jvm/default/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
+SETUVAR --export QT_IM_MODULE:fcitx
+SETUVAR --export QT_QPA_PLATFORM:wayland
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt6ct
+SETUVAR --export SDL_IM_MODULE:fcitx
+SETUVAR --export XDG_CURRENT_DESKTOP:sway
+SETUVAR --export XDG_CURRENT_SESSION_TYPE:wayland
+SETUVAR --export XDG_SESSION_DESKTOP:sway
+SETUVAR --export XMODIFIERS:\x40im\x3dfcitx
 SETUVAR __fish_initialized:4300
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish

@@ -1,0 +1,154 @@
+set $mod Mod4
+
+font pango:monospace 12
+
+output HDMI-A-1 pos 0 0 scale 1
+output DP-1 pos 1920 0 scale 1
+
+exec --no-startup-id dex
+
+exec --no-startup-id nm-applet
+exec blueman-applet
+
+exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false
+exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%
+
+exec wayland-pipewire-idle-inhibit
+
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+input "type:keyboard" {
+    repeat_delay 200
+    repeat_rate 25
+}
+
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr &
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+
+exec mako
+
+set $term ghostty
+
+bindsym F10 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym F9 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym F8 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+floating_modifier $mod
+
+bindsym $mod+q kill
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway?' -B 'Yes' 'swaymsg exit'"
+bindsym $mod+Shift+r reload
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+w layout tabbed
+
+bindsym $mod+Shift+space floating toggle
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+set $main_monitor HDMI-A-1
+set $second_monitor DP-1
+
+workspace 1 output $main_monitor
+workspace 2 output $second_monitor
+#workspace 3 output $main_monitor
+#workspace 4 output $main_monitor
+#workspace 5 output $second_monitor
+# workspace 6 output  $main_monitor
+# workspace 7 output  $main_monitor
+# workspace 8 output  $main_monitor
+workspace 9 output $second_monitor
+# workspace 10 output $second_monitor
+
+corner_radius 5
+
+exec_always --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDDG_CURRENT_DESKTOP=sway && sh -c "pkill waybar || true; waybar &"
+
+gaps inner 5
+
+output * bg /mnt/Programming/Dot-Files/wallpaper/plains.png fill
+
+exec_always ~/.config/sway/autostart.sh
+exec ~/.config/sway/activitywatch.sh
+exec_always --no-startup-id fcitx5 -d
+exec_always ~/.config/sway/headphones.sh
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
+exec ~/.config/sway/
+# exec wayvibes ~/Downloads/Soundpacks/cherrymx-black-abs/ --background
+exec ~/.config/sway/mpd-init.fish
+exec_always wlsunset -l 26.75 -L 94.22 -T 6500 -t 4200 -d 600
+
+bindsym Ctrl+Print exec ~/take_screenshot.sh
+bindsym Ctrl+Shift+x exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
+bindsym Ctrl+Mod1+d exec dolphin
+bindsym Ctrl+Shift+space exec rofi -show drun -display-drun "Apps"
+bindsym Ctrl+Shift+f exec rofi -show window
+bindsym $mod+Return exec $term
+bindsym Ctrl+Shift+l exec ~/.config/sway/power-menu.sh
+bindsym Ctrl+Shift+d exec legcord
+
+# Autostart
+assign [app_id="zen"] workspace number 1
+exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
+for_window [app_id="zen"] focus
+
+assign [app_id="legcord"] workspace number 2
+exec legcord
+
+assign [app_id="konsole"] workspace number 9
+
+for_window [app_id="Waydroid"] resize set 600 600
