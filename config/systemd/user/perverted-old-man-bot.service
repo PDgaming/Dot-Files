@@ -1,0 +1,11 @@
+[Unit]
+Description=Perverted Old Man Discord Bot
+
+[Service]
+Type=simple
+WorkingDirectory=/mnt/Programming/programming/Github/Perverted-Old-Man-Discord-Bot
+ExecStart=/mnt/Programming/programming/Github/Perverted-Old-Man-Discord-Bot/venv/bin/python3 main.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

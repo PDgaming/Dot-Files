@@ -1,0 +1,11 @@
+[Unit]
+Description=United Blocks Heartbeat
+
+[Service]
+Type=simple
+WorkingDirectory=/mnt/Programming/programming/Github/United-Blocks/
+ExecStart=/home/prodeh/.bun/bin/bun run heartbeat.ts prod
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
