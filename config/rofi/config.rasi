@@ -23,19 +23,18 @@ configuration {
     fg: #cdd6f4;
     fg-alt: #a6adc8;
 
-    background-color: @bg;
+    accent: #89b4fa;
+    accent-alt: #cba6f7;
 
-    border: 0;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
-    
-    border-radius: 8px;
+    background-color: @bg;
 }
 window {
     width: 40%;
-    border-radius: 12px;
     padding: 10px;
+
+    border: 2px;
+    border-color: @accent;
+    border-radius: 12px;
 }
 element {
     padding: 12;
@@ -43,8 +42,8 @@ element {
     border-radius: 6px;
 }
 element selected {
-    background-color: @bg-alt;
-    text-color: @fg;
+    background-color: @accent;
+    text-color: #1e1e2e;
 }
 
 element-text {

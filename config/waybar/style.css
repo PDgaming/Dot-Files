@@ -1,102 +1,75 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome", sans-serif;
+  font-family: "JetBrainsMono Nerd Font";
   font-size: 13px;
-  min-height: 0;
-
-  margin: 0;
-  padding: 0;
-  min-height: 0;
+  min-height: 10px;
 }
 window#waybar {
-  background: rgba(43, 48, 59, 0.5);
-  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-  color: white;
-  border-radius: 0 0 5px 5px;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-bottom: 2px solid #313244;
 }
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+  background: #181825;
+  border: 1px solid #45475a;
 }
 tooltip label {
-  color: white;
+  color: #cdd6f4;
+}
+#workspaces {
+  margin-left: 5px;
 }
 #workspaces button {
-  padding: 0 3px;
+  padding: 0 8px;
+  color: #6c7086;
   background: transparent;
-  color: white;
-  border-radius: 5px;
-  border-bottom: 3px solid transparent;
 }
+#workspaces button.active,
 #workspaces button.focused {
-  background: #64727d;
-  border-bottom: 3px solid white;
+  color: #45475a;
+  background: #313244;
+  border-radius: 6px;
 }
 #workspaces button:hover {
-  background: #64727d;
-  border-bottom: 3px solid white;
+    background: #45475a;
+    color: #cdd6f4;
+}
+#clock,
+#network,
+#memory,
+#pulseaudio,
+#tray {
+    background: #313244;
+    color: #cdd6f4;
+    padding: 0 8px;
+    margin: 2px 2px;
+    border-radius: 4px;
 }
 #clock {
-  border-radius: 5px;
-  color: white;
-  padding: 5px;
-  border-bottom: 3px solid #8be9fd;
-}
-#clock:hover {
-  background-color: #8be9fd;
+  color: #89b4fa;
 }
 #network {
-  border-radius: 5px;
-  padding: 5px;
-  border-bottom: 3px solid #eb6000;
-}
-#network:hover {
-  background-color: #eb6000;
+  color: #94e2d5;
 }
 #memory {
-  border-radius: 5px;
-  padding: 5px;
-  border-bottom: 3px solid #eb4000;
-}
-#memory:hover {
-  background-color: #eb4000;
+    color: #fab387;
 }
 #pulseaudio {
-  border-radius: 5px;
-  padding: 5px;
-  border-bottom: 3px solid #f6c177;
-}
-#pulseaudio:hover {
-  background-color: #f6c177;
+    color: #f9e2af;
 }
 #tray {
-  border-radius: 5px;
-  padding: 5px;
-  background-color: #64727d;
-  border-bottom: 3px solid #161320;
-}
-menu {
-  border-radius: 10px;
-  background: #161320;
-  color: #b5e8e0;
-  padding: 5px;
-}
-menuitem {
-  border-radius: 10px;
-  padding: 5px;
+    color: #cdd6f4;
 }
 #custom-music {
-  background: #282828;
-  color: #ebdbb2;
-  padding: 0 10px;
-  margin: 0 4px;
-  border-radius: 8px;
+    background: #313244;
+    padding: 0 10px;
+    margin: 2px;
+    border-radius: 4px;
 }
 #custom-music.playing {
-    color: #b8bb26;
+    color: #a6e3a1;
 }
-
 #custom-music.paused {
-    color: #928374;
+    color: #6c7086;
 }

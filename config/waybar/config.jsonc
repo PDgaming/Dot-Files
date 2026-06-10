@@ -31,7 +31,7 @@
     },
   },
   "clock": {
-    "format": "{:%a %dth %b %I:%M %p %Z}",
+    "format": "{:%a %dth %I:%M %p %Z}",
     "tooltip-format": "{:%a %dth %b %I:%M %p %Z}",
     "timezones": [
       "",
