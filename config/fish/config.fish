@@ -29,3 +29,6 @@ set -gx PATH $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools $PATH
 
 # Cargo
 set -x PATH "$PATH:$HOME/.cargo/bin"
+
+# EMSDK
+EMSDK_QUIET=1 source "/mnt/Software/emsdk/emsdk_env.fish"

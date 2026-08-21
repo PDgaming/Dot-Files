@@ -110,9 +110,9 @@ set $second_monitor DP-1
 
 workspace 1 output $main_monitor
 workspace 2 output $second_monitor
-#workspace 3 output $main_monitor
-#workspace 4 output $main_monitor
-#workspace 5 output $second_monitor
+# workspace 3 output $main_monitor
+# workspace 4 output $second_monitor
+# workspace 5 output $main_monitor
 # workspace 6 output  $main_monitor
 # workspace 7 output  $main_monitor
 # workspace 8 output  $main_monitor
@@ -161,6 +161,7 @@ output * bg /mnt/Programming/Dot-Files/wallpaper/Arch-Mantle.png fill
 
 exec_always systemctl --user restart perverted-old-man-bot.service
 exec_always systemctl --user restart united-blocks-heartbeat.service
+exec_always systemctl --user restart aw-watcher-mpd.service
 exec ~/.config/sway/activitywatch.sh
 exec_always --no-startup-id fcitx5 -d
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
@@ -170,13 +171,12 @@ exec ~/.config/sway/mpd-init.fish
 exec_always wlsunset -l 26.75 -L 94.22 -T 6500 -t 4200 -d 600
 
 bindsym Ctrl+Print exec ~/.config/sway/take_screenshot.sh
-bindsym Ctrl+Shift+x exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
+bindsym Ctrl+Shift+x exec zen-browser
 bindsym Ctrl+Mod1+d exec dolphin
 bindsym Ctrl+Shift+space exec rofi -show drun -display-drun "Apps"
 bindsym Ctrl+Shift+f exec rofi -show window
 bindsym $mod+Return exec $term
 bindsym Ctrl+Shift+l exec ~/.config/sway/power-menu.sh
-bindsym Ctrl+Shift+d exec legcord
 bindsym F7 exec mpc play
 bindsym F6 exec mpc pause
 bindsym F4 exec mpc next
@@ -184,7 +184,7 @@ bindsym F3 exec mpc stop
 
 # Autostart
 assign [app_id="zen"] workspace number 1
-exec '/mnt/Software/Linux/Zen-Browser/zen-browser.AppImage'
+exec zen-browser
 for_window [app_id="zen"] focus
 
 assign [app_id="legcord"] workspace number 2
