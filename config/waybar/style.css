@@ -6,9 +6,8 @@
   min-height: 10px;
 }
 window#waybar {
-  background: #1e1e2e;
+  background: transparent;
   color: #cdd6f4;
-  border-bottom: 2px solid #313244;
 }
 tooltip {
   background: #181825;
@@ -21,7 +20,7 @@ tooltip label {
   margin-left: 5px;
 }
 #workspaces button {
-  padding: 0 8px;
+  padding: 0 6px;
   color: #6c7086;
   background: transparent;
 }
@@ -32,44 +31,56 @@ tooltip label {
   border-radius: 6px;
 }
 #workspaces button:hover {
-    background: #45475a;
-    color: #cdd6f4;
+  background: #45475a;
+  color: #cdd6f4;
 }
 #clock,
 #network,
 #memory,
 #pulseaudio,
 #tray {
-    background: #313244;
-    color: #cdd6f4;
-    padding: 0 8px;
-    margin: 2px 2px;
-    border-radius: 4px;
+  color: #cdd6f4;
+  padding: 0 8px;
+  margin: 2px 2px;
+  border-radius: 4px;
 }
 #clock {
   color: #89b4fa;
 }
+#clock:hover {
+  background: #313244;
+}
 #network {
   color: #94e2d5;
 }
+#network:hover {
+  background: #313244;
+}
 #memory {
-    color: #fab387;
+  color: #fab387;
+}
+#memory:hover {
+  background: #313244;
 }
 #pulseaudio {
-    color: #f9e2af;
+  color: #f9e2af;
+}
+#pulseaudio:hover {
+  background: #313244;
 }
 #tray {
-    color: #cdd6f4;
+  color: #cdd6f4;
+  margin-right: 5px;
 }
 #custom-music {
-    background: #313244;
-    padding: 0 10px;
-    margin: 2px;
-    border-radius: 4px;
+  background: #313244;
+  padding: 0 10px;
+  margin: 2px;
+  border-radius: 4px;
 }
 #custom-music.playing {
-    color: #a6e3a1;
+  color: #a6e3a1;
 }
 #custom-music.paused {
-    color: #6c7086;
+  color: #6c7086;
 }

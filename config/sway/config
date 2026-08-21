@@ -3,7 +3,7 @@ set $mod Mod4
 font pango:monospace 12
 
 output HDMI-A-1 pos 0 0 scale 1
-output DP-1 pos 1920 0 scale 1
+output DP-1 pos 1920 60 scale 1
 
 exec --no-startup-id dex
 
@@ -163,7 +163,6 @@ exec_always systemctl --user restart perverted-old-man-bot.service
 exec_always systemctl --user restart united-blocks-heartbeat.service
 exec ~/.config/sway/activitywatch.sh
 exec_always --no-startup-id fcitx5 -d
-exec_always ~/.config/sway/headphones.sh
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
 exec ~/.config/sway/
 # exec wayvibes ~/Downloads/Soundpacks/cherrymx-black-abs/ --background

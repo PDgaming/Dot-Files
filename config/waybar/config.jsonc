@@ -79,6 +79,7 @@
     ],
   },
   "tray": {
+    "icon-size": 19,
     "spacing": 10,
   },
 }

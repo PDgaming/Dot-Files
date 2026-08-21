@@ -3,7 +3,6 @@ if not status is-interactive
 end
 
 # Executables
-alias playit='/mnt/Software/Linux/Playit/playit-linux-amd64'
 alias reBl="sudo systemctl restart bluetooth.service"
 # NVM
 if test -d ~/.nvm
