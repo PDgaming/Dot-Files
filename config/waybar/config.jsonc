@@ -44,11 +44,13 @@
   "network": {
     "interface": "enp3s0",
     "format": "{bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑",
+    "tooltip-format": "{ifname}",
     "interval": 1,
   },
   "memory": {
     "interval": 30,
-    "format": "{used:0.1f}G/{total:0.1f}G {percentage}%",
+    "tooltip-format": "{used: 0.1f}G/{total: 0.1f}G",
+    "format": "  {percentage}%",
   },
   "custom/music": {
     "format": "  {}",
@@ -63,14 +65,14 @@
       "prev": "mpc prev",
       "toggle": "mpc toggle",
     },
-    "interval": 2,
+    "interval": 1,
     "max-length": 30,
     "escape": true,
   },
   "pulseaudio": {
-    "format": "Vol: {volume}%",
-    "format-bluetooth": "Vol: {volume}%",
-    "format-muted": "Mute",
+    "format": "  {volume}%",
+    "format-bluetooth": "  {volume}%",
+    "format-muted": " ",
     "scroll-step": 1,
     "on-click": "pavucontrol",
     "ignored-sinks": [
@@ -80,6 +82,6 @@
   },
   "tray": {
     "icon-size": 19,
-    "spacing": 10,
+    "spacing": 5,
   },
 }
