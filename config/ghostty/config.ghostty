@@ -33,4 +33,8 @@ background-opacity=0.94
 shell-integration-features = no-cursor,no-sudo,no-title
 keybind = ctrl+shift+r=reload_config
 gtk-titlebar = false
+window-decoration = none
 theme = Catppuccin Mocha
+window-padding-x = 5
+window-padding-y = 2
+window-padding-balance = true

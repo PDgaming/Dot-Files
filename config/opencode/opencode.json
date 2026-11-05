@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": ["~/.config/opencode/skills/unslop/SKILL.md"],
   "permission": {
     "edit": "ask"
   }

@@ -11,7 +11,7 @@ set $second_monitor DP-1
 
 output HDMI-A-1 pos 0 0 scale 1
 output DP-1 pos 1920 60 scale 1
-output * bg /mnt/Programming/Dot-Files/wallpaper/Arch-Base.png fill
+exec_always ~/.config/sway/wallpaper.sh
 
 
 ### Workspaces
@@ -54,6 +54,8 @@ floating_modifier $mod
 font pango:monospace 12
 gaps inner 5
 corner_radius 10
+default_border pixel 1
+hide_edge_borders smart
 
 # Catppuccin
 set $rosewater #f5e0dc
@@ -107,6 +109,7 @@ exec mako
 exec_always --no-startup-id fcitx5 -d
 exec wayland-pipewire-idle-inhibit
 exec_always wlsunset -l 26.75 -L 94.22 -T 6500 -t 4200 -d 600
+exec awww-daemon
 
 # Audio defaults
 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false
@@ -120,9 +123,12 @@ exec swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 # User services
-exec_always systemctl --user restart perverted-old-man-bot.service
+exec systemctl --user start perverted-old-man-bot.service
 exec_always systemctl --user restart united-blocks-heartbeat.service
+#exec_always systemctl --user restart united-blocks-heartbeat-local.service
 exec_always systemctl --user restart aw-watcher-mpd.service
+#exec_always systemctl --user restart david.service
+exec_always systemctl --user restart blockchain-network.service
 exec ~/.config/sway/activitywatch.sh
 exec ~/.config/sway/mpd-init.fish
 

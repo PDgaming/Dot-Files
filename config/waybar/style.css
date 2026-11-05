@@ -23,6 +23,12 @@ tooltip {
   color: gray;
   border-radius: 0px 0px 6px 6px;
 }
+#workspaces button:first-child {
+  margin-left: 0px;
+}
+#workspaces button:last-child {
+  margin-right: 0px;
+}
 #workspaces button.active,
 #workspaces button.focused {
   background: #45475a;
@@ -32,6 +38,7 @@ tooltip {
 }
 
 /* Modules */
+#workspaces,
 #clock,
 #network,
 #memory,
@@ -41,6 +48,9 @@ tooltip {
   background: #313244;
   padding: 2px 8px;
   border-radius: 0px 0px 6px 6px;
+}
+#workspaces {
+  padding: 0px 0px;
 }
 #clock {
   color: #89b4fa;
